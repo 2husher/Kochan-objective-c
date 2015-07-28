@@ -65,7 +65,9 @@
 - (AddressCard *)lookup:(NSString *)theName
 {
     for (AddressCard *theCard in book) {
-        if ([theCard.name caseInsensitiveCompare: theName] == NSOrderedSame ) {
+        NSRange searchRange = [theCard.name rangeOfString: theName
+                                                   options: NSCaseInsensitiveSearch];
+        if ( NO == NSEqualRanges(searchRange, NSMakeRange(NSNotFound, 0)) ) {
             return theCard;
         }
     }

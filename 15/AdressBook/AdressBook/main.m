@@ -53,8 +53,8 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Entries in book after adding cards: %li", [book entries]);
         
-        NSLog(@"Alex Izotov");
-        card = [book lookup: @"alex izotov"];
+        NSLog(@"Partial match: chan");
+        card = [book lookup: @"chan"];
         if (card) {
             [card print];
         } else {
