@@ -74,7 +74,7 @@
     return nil;
 }
 
--(NSArray *) lookupAll: (NSString *) theName {
+- (NSArray *) lookupAll: (NSString *) theName {
     NSIndexSet *result = [book indexesOfObjectsPassingTest:
         ^(id obj, NSUInteger idx, BOOL *stop)
         {
@@ -88,6 +88,17 @@
     NSArray *matchingNames = [book objectsAtIndexes: result];
     
     return matchingNames;
+}
+
+- (BOOL)removeName:(NSString *)theName
+{
+    NSArray *matchingNames = [self lookupAll: theName];
+    if ([matchingNames count] == 1){
+        [self removeCard: [matchingNames firstObject]];
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

@@ -53,13 +53,13 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"Entries in book after adding cards: %li", [book entries]);
         
-        NSLog(@"Partial match: chan");
-        card = [book lookup: @"chan"];
-        if (card) {
-            [card print];
-        } else {
-            NSLog(@"Not found");
-        }
+//        NSLog(@"Partial match: chan");
+//        card = [book lookup: @"chan"];
+//        if (card) {
+//            [card print];
+//        } else {
+//            NSLog(@"Not found");
+//        }
         
         NSLog(@"Partial matches: an");
         NSArray *cards = [book lookupAll: @"an"];
@@ -86,6 +86,14 @@ int main(int argc, const char * argv[]) {
         
         [book sort];
         [book list];
+        
+        NSLog(@"Entries in book after trial of multiple removing: %li", [book entries]);
+        if ([book removeName: @"chan"] == NO)
+            [book list];
+        
+        NSLog(@"Entries in book after trial of single removing: %li", [book entries]);
+        if ([book removeName: @"tony"] == YES)
+            [book list];
     }
     return 0;
 }

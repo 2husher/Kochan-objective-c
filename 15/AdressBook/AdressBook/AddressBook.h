@@ -24,5 +24,6 @@
 - (void) sort;
 - (AddressCard *) lookup: (NSString *)theName;
 - (NSArray *) lookupAll: (NSString *) theName;
+- (BOOL) removeName: (NSString *) theName;
 
 @end
