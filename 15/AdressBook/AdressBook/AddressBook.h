@@ -23,5 +23,6 @@
 - (void) list;
 - (void) sort;
 - (AddressCard *) lookup: (NSString *)theName;
+- (NSArray *) lookupAll: (NSString *) theName;
 
 @end

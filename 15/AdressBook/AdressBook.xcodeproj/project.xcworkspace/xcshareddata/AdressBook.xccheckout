@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>85044C87-B433-4104-9B84-5F91216A5950</string>
 	<key>IDESourceControlProjectName</key>
-	<string>AdressBook</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>8DD6CA4153F54EA68B9AA677614D54E6E9E2FD51</key>
 		<string>github.com:2husher/Kochan-objective-c.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>15/AdressBook/AdressBook.xcodeproj</string>
+	<string>15/AdressBook/AdressBook.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8DD6CA4153F54EA68B9AA677614D54E6E9E2FD51</key>

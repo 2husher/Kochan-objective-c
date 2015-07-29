@@ -61,6 +61,16 @@ int main(int argc, const char * argv[]) {
             NSLog(@"Not found");
         }
         
+        NSLog(@"Partial matches: an");
+        NSArray *cards = [book lookupAll: @"an"];
+        if (cards) {
+            for (AddressCard * card in cards) {
+                [card print];
+            }
+        } else {
+            NSLog(@"Not found");
+        }
+        
         [book removeCard: card];
         
         NSLog(@"Victor Frankl");

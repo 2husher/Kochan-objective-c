@@ -74,4 +74,20 @@
     return nil;
 }
 
+-(NSArray *) lookupAll: (NSString *) theName {
+    NSIndexSet *result = [book indexesOfObjectsPassingTest:
+        ^(id obj, NSUInteger idx, BOOL *stop)
+        {
+            NSRange searchRange = [[obj name] rangeOfString: theName
+                                                    options: NSCaseInsensitiveSearch];
+            if (NO == NSEqualRanges(searchRange, NSMakeRange(NSNotFound, 0)))
+                return YES; // found a match, keep going else
+            else
+                return NO;
+        } ];
+    NSArray *matchingNames = [book objectsAtIndexes: result];
+    
+    return matchingNames;
+}
+
 @end
