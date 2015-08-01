@@ -19,34 +19,40 @@ int main(int argc, const char * argv[]) {
         
         fm = [NSFileManager defaultManager];
         
-        if ([args count] != 3) {
-            NSLog(@"Usage: %@ scr dest", [proc processName]);
+        NSUInteger argsCount = [args count];
+        if (argsCount < 3) {
+            NSLog(@"Usage: %@ scr1 src2 ... srcN dest", [proc processName]);
             return 1;
         }
         
-        source = args[1];
-        dest   = args[2];
-        
-        if ([fm isReadableFileAtPath: source] == NO) {
-            NSLog(@"Can't read %@", source);
-            return 2;
-        }
+        dest   = [args lastObject];
         
         [fm fileExistsAtPath: dest isDirectory: &isDir];
         
-        if (isDir == YES) {
-            dest = [dest stringByAppendingString: [source lastPathComponent]];
+        if (isDir == NO && argsCount > 3) {
+            NSLog(@"Destination must be the directory for copying %lu objects", argsCount - 2);
+            return 2;
         }
         
-        [fm removeItemAtPath: dest error: NULL];
-        
-        if ([fm copyItemAtPath: source toPath: dest error: NULL] == NO) {
-            NSLog(@"Copy failed!");
-            return 3;
+        for (int i = 1; i < argsCount - 1; ++i) {
+            source = args[i];
+            if ([fm isReadableFileAtPath: source] == NO) {
+                NSLog(@"Can't read %@", source);
+                return 3;
+            }
+            
+            if (isDir == YES) {
+                dest = [[args lastObject] stringByAppendingPathComponent: [source lastPathComponent]];
+            }
+            [fm removeItemAtPath: dest error: NULL];
+
+            if ([fm copyItemAtPath: source toPath: dest error: NULL] == NO) {
+                NSLog(@"Copy of %@ object failed!", source);
+                return 3;
+            }
+            
+            NSLog(@"Copy of %@ to %@ succeed!", source, dest);
         }
-        
-        NSLog(@"Copy of %@ to %@ succeed!", source, dest);
-        
     }
     return 0;
 }
