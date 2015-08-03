@@ -15,6 +15,7 @@
 - (void) setDenominator: (int) d;
 - (int) numenator;
 - (int) denominator;
+- (double) convertToNum;
 
 @end
 
@@ -49,6 +50,15 @@
     return denominator;
 }
 
+- (double)convertToNum
+{
+    if (denominator != 0) {
+        return (double) numerator/denominator;
+    } else {
+        return NAN;
+    }
+}
+
 @end
 
 int main(int argc, const char * argv[]) {
@@ -57,16 +67,16 @@ int main(int argc, const char * argv[]) {
         Fraction *fraction1 = [[Fraction alloc] init];
         Fraction *fraction2 = [[Fraction alloc] init];
         
-        [fraction1 setNumerator: 3];
-        [fraction2 setDenominator: 7];
+        [fraction1 setNumerator: 1];
+        [fraction1 setDenominator: 4];
         
-        [fraction2 setNumerator: 2];
-        [fraction2 setDenominator: 9];
+        [fraction1 print];
+        NSLog(@" = ");
+        NSLog(@"%g", [fraction1 convertToNum]);
         
-        NSLog(@"1st fraction is: %i/%i", [fraction1 numenator], [fraction1 denominator]);
-        
-        NSLog(@"2nd fraction is:");
         [fraction2 print];
+        NSLog(@" = ");
+        NSLog(@"%g", [fraction2 convertToNum]);
         
     }
     return 0;

@@ -132,27 +132,46 @@ int main (int argc, char * argv[])
 {
     @autoreleasepool
     {
+        double value1, value2;
+        char operator;
+        
         Calculator *deskCalc = [[Calculator alloc] init];
         
-        [deskCalc setAccumulator: 100.0];
+        NSLog (@"Type in your expression.");
+        scanf ("%lf %c %lf", &value1, &operator, &value2);
         
-        NSLog (@"Added: %g", [deskCalc add: 200.]);
-        NSLog (@"Divided: %g", [deskCalc divide: 15.0]);
-        NSLog (@"Substracted: %g", [deskCalc subtract: 10.0]);
-        NSLog (@"Multiplied: %g", [deskCalc multiply: 5]);
+        [deskCalc setAccumulator: value1];
         
-        NSLog (@"Changed sign: %g", [deskCalc changeSign]);
-        NSLog (@"Reciprocaled: %g", [deskCalc reciprocal]);
-        NSLog (@"XSquarted: %g", [deskCalc xSquared]);
+        if ( operator == '+' )
+            [deskCalc add: value2];
+        else if ( operator == '-' )
+            [deskCalc subtract: value2];
+        else if ( operator == '*' )
+            [deskCalc multiply: value2];
+        else if ( operator == '/' )
+            [deskCalc divide: value2];
         
-        NSLog (@"Memory Recalled: %g", [deskCalc memoryRecall]);
-        NSLog (@"Memory Added: %g", [deskCalc memoryAdd: 3]);
-        NSLog (@"Memory Substracted: %g", [deskCalc memorySubtract: 7]);
-        NSLog (@"Memory Stored: %g", [deskCalc memoryStore]);
-        NSLog (@"Memory Cleared: %g", [deskCalc memoryClear]);
-
+        NSLog (@"%.2f", [deskCalc accumulator]);
         
-        NSLog (@"The result is %g", [deskCalc accumulator]);
+        
+//        [deskCalc setAccumulator: 100.0];
+//        
+//        NSLog (@"Added: %g", [deskCalc add: 200.]);
+//        NSLog (@"Divided: %g", [deskCalc divide: 15.0]);
+//        NSLog (@"Substracted: %g", [deskCalc subtract: 10.0]);
+//        NSLog (@"Multiplied: %g", [deskCalc multiply: 5]);
+//        
+//        NSLog (@"Changed sign: %g", [deskCalc changeSign]);
+//        NSLog (@"Reciprocaled: %g", [deskCalc reciprocal]);
+//        NSLog (@"XSquarted: %g", [deskCalc xSquared]);
+//        
+//        NSLog (@"Memory Recalled: %g", [deskCalc memoryRecall]);
+//        NSLog (@"Memory Added: %g", [deskCalc memoryAdd: 3]);
+//        NSLog (@"Memory Substracted: %g", [deskCalc memorySubtract: 7]);
+//        NSLog (@"Memory Stored: %g", [deskCalc memoryStore]);
+//        NSLog (@"Memory Cleared: %g", [deskCalc memoryClear]);
+//
+//        NSLog (@"The result is %g", [deskCalc accumulator]);
     }
     return 0;
 }
