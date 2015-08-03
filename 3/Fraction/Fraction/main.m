@@ -7,76 +7,38 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface Fraction : NSObject
-
-- (void) print;
-- (void) setNumerator: (int) n;
-- (void) setDenominator: (int) d;
-- (int) numenator;
-- (int) denominator;
-- (double) convertToNum;
-
-@end
-
-@implementation Fraction
-{
-    int numerator;
-    int denominator;
-}
-
-- (void) print
-{
-    NSLog(@"%i/%i", numerator, denominator);
-}
-
-- (void)setNumerator:(int)n
-{
-    numerator = n;
-}
-
-- (void)setDenominator:(int)d
-{
-    denominator = d;
-}
-
-- (int)numenator
-{
-    return numerator;
-}
-
-- (int)denominator
-{
-    return denominator;
-}
-
-- (double)convertToNum
-{
-    if (denominator != 0) {
-        return (double) numerator/denominator;
-    } else {
-        return NAN;
-    }
-}
-
-@end
+#import "Fraction.h"
+#import "Fraction+MathOps.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
-        Fraction *fraction1 = [[Fraction alloc] init];
-        Fraction *fraction2 = [[Fraction alloc] init];
+        Fraction *a = [[Fraction alloc] init];
+        Fraction *b = [[Fraction alloc] init];
+        Fraction *result;
         
-        [fraction1 setNumerator: 1];
-        [fraction1 setDenominator: 4];
+        [a setTo: 1 over: 3];
+        [b setTo: 2 over: 5];
         
-        [fraction1 print];
-        NSLog(@" = ");
-        NSLog(@"%g", [fraction1 convertToNum]);
+        [a print]; NSLog (@" +"); [b print]; NSLog (@"-----");
+        result = [a add: b];
+        [result print]; NSLog (@"\n");
         
-        [fraction2 print];
-        NSLog(@" = ");
-        NSLog(@"%g", [fraction2 convertToNum]);
+        [a print]; NSLog (@" -"); [b print]; NSLog (@"-----");
+        result = [a sub: b];
+        [result print]; NSLog (@"\n");
+        
+        [a print]; NSLog (@" *"); [b print]; NSLog (@"-----");
+        result = [a mul: b];
+        [result print]; NSLog (@"\n");
+        
+        [a print]; NSLog (@" /"); [b print]; NSLog (@"-----");
+        result = [a div: b];
+        [result print]; NSLog (@"\n");
+        
+        NSLog(@"inverted"); [b print]; NSLog(@"-----");
+        result = [b invert];
+        [result print]; NSLog(@"\n");
         
     }
     return 0;

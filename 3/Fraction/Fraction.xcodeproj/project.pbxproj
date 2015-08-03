@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		173B1C231B6FCAA000705392 /* Fraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B1C221B6FCAA000705392 /* Fraction.m */; };
+		173B1C261B6FCD0E00705392 /* Fraction+MathOps.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B1C251B6FCD0E00705392 /* Fraction+MathOps.m */; };
 		17EA4FA31B6E1284009BF201 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EA4FA21B6E1284009BF201 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		173B1C211B6FCAA000705392 /* Fraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fraction.h; sourceTree = "<group>"; };
+		173B1C221B6FCAA000705392 /* Fraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fraction.m; sourceTree = "<group>"; };
+		173B1C241B6FCD0E00705392 /* Fraction+MathOps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fraction+MathOps.h"; sourceTree = "<group>"; };
+		173B1C251B6FCD0E00705392 /* Fraction+MathOps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fraction+MathOps.m"; sourceTree = "<group>"; };
 		17EA4F9F1B6E1284009BF201 /* Fraction */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Fraction; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EA4FA21B6E1284009BF201 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +63,10 @@
 		17EA4FA11B6E1284009BF201 /* Fraction */ = {
 			isa = PBXGroup;
 			children = (
+				173B1C211B6FCAA000705392 /* Fraction.h */,
+				173B1C221B6FCAA000705392 /* Fraction.m */,
+				173B1C241B6FCD0E00705392 /* Fraction+MathOps.h */,
+				173B1C251B6FCD0E00705392 /* Fraction+MathOps.m */,
 				17EA4FA21B6E1284009BF201 /* main.m */,
 			);
 			path = Fraction;
@@ -119,6 +129,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				17EA4FA31B6E1284009BF201 /* main.m in Sources */,
+				173B1C261B6FCD0E00705392 /* Fraction+MathOps.m in Sources */,
+				173B1C231B6FCAA000705392 /* Fraction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +247,7 @@
 				17EA4FA81B6E1284009BF201 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
